@@ -10,7 +10,7 @@
     {% for page in site.pages  %}
     {% if page.title %}
     <!-- {{ page.title }} -->
-    <article id="{{ page.title }}">
+    <article id="{{ page.id }}">
         <h2 class="major">{{ page.title }}</h2>
         {% if page.image %}<span class="image main"><img src="assets/images/{{ page.image }}" alt="" /></span>{% endif %}
         {% if page.image-2 %}<span class="image main"><img src="assets/images/{{ page.image-2 }}" alt="" /></span>{% endif %}
@@ -33,7 +33,6 @@
             })();
             </script>
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        </div>
         {% endif %}
     </article>
     {% endif %}
