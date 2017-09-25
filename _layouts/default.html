@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+
+{% include head.html %}
+
+<body>
+
+    {% include header.html %}
+
+    {% for page in site.pages  %}
+    {% if page.title %}
+    <!-- {{ page.title }} -->
+    <article id="{{ page.title }}">
+        <h2 class="major">{{ page.title }}</h2>
+        {% if page.image %}<span class="image main"><img src="assets/images/{{ page.image }}" alt="" /></span>{% endif %}
+        {% if page.image-2 %}<span class="image main"><img src="assets/images/{{ page.image-2 }}" alt="" /></span>{% endif %}
+
+        {{ page.content }}
+        {% if page.comments %}
+        <div id="disqus_thread"></div>
+            <script>
+            /*
+            var disqus_config = function () {
+            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+            */
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://modhialshehri.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
+        {% endif %}
+    </article>
+    {% endif %}
+    {% endfor %}
+
+    {% include footer.html %}
+
+</body>
+
+</html>
